@@ -1,0 +1,17 @@
+{% extends 'appFive/base.html' %}
+    {% block body_block %}
+<div class="jumbotron">
+    <h1>Registration!</h1>
+    {% if registered %}
+        <h2>Thank you for registering</h2>
+    {% else %}
+        <h2>Please fill the following form to register!</h2>
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" value="Register">
+        </form>
+    {% endif %}
+</div>
+    {% endblock %}
